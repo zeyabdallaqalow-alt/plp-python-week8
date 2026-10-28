@@ -1,0 +1,37 @@
+PLP PYTHON WEEK 8 TOOLKIT PLAN
+
+1. TOOLS
+
+Tool 1: Simple Calculator
+This tool adds, subtracts, multiplies, and divides two numbers.
+Concepts: Variables, input, conditionals, and f-strings.
+
+Tool 2: To-Do List
+This tool allows users to add, view, and remove tasks.
+Concepts: Lists, loops, conditionals, and f-strings.
+
+Tool 3: Number Checker
+This tool checks whether a number is positive, negative, or zero and whether it is even or odd.
+Concepts: Input, conditionals, arithmetic operators, and f-strings.
+
+2. EXACT MENU TEXT
+
+Welcome to My Python Toolkit!
+
+Please choose a tool:
+1. Simple Calculator
+2. To-Do List
+3. Number Checker
+4. Quit
+
+Enter your choice (1-4):
+
+3. CONCEPTS USED
+
+Variables store information.
+Input collects information from the user.
+Conditionals make decisions.
+Loops repeat actions.
+Lists store tasks that change while the program runs.
+F-strings display friendly messages.
+Comments explain the code.
