@@ -1,0 +1,147 @@
+
+# PLP Python Week 8 Final Project
+# A menu-driven toolkit with three useful tools.
+
+
+# Tool 1: Performs basic arithmetic calculations.
+def simple_calculator():
+    print("\n--- Simple Calculator ---")
+
+    try:
+        num1 = float(input("Enter the first number: "))
+        operator = input("Choose an operation (+, -, *, /): ")
+        num2 = float(input("Enter the second number: "))
+
+        if operator == "+":
+            result = num1 + num2
+        elif operator == "-":
+            result = num1 - num2
+        elif operator == "*":
+            result = num1 * num2
+        elif operator == "/":
+            if num2 == 0:
+                print("Sorry, you cannot divide by zero.")
+                return
+            result = num1 / num2
+        else:
+            print(f"Sorry, '{operator}' is not a valid operation.")
+            return
+
+        print(f"Result: {num1} {operator} {num2} = {result}")
+
+    except ValueError:
+        print("Please enter valid numbers.")
+
+
+# Tool 2: Allows users to add, view, and remove tasks.
+def todo_list():
+    tasks = []
+
+    while True:
+        print("\n--- To-Do List ---")
+        print("1. Add a task")
+        print("2. View tasks")
+        print("3. Remove a task")
+        print("4. Return to main menu")
+
+        choice = input("Enter your choice (1-4): ")
+
+        if choice == "1":
+            task = input("Enter your task: ").strip()
+
+            if task:
+                tasks.append(task)
+                print(f"Task added: {task}")
+            else:
+                print("Task cannot be empty.")
+
+        elif choice == "2":
+            if tasks:
+                print("\nYour tasks:")
+                for number, task in enumerate(tasks, start=1):
+                    print(f"{number}. {task}")
+            else:
+                print("Your to-do list is empty.")
+
+        elif choice == "3":
+            if tasks:
+                for number, task in enumerate(tasks, start=1):
+                    print(f"{number}. {task}")
+
+                try:
+                    number = int(input("Enter the task number to remove: "))
+
+                    if 1 <= number <= len(tasks):
+                        removed = tasks.pop(number - 1)
+                        print(f"Removed task: {removed}")
+                    else:
+                        print("That task number does not exist.")
+
+                except ValueError:
+                    print("Please enter a valid task number.")
+            else:
+                print("There are no tasks to remove.")
+
+        elif choice == "4":
+            print("Returning to the main menu.")
+            break
+
+        else:
+            print(f"'{choice}' is not valid. Please choose 1, 2, 3, or 4.")
+
+
+# Tool 3: Checks whether a number is positive, negative, zero, even, or odd.
+def number_checker():
+    print("\n--- Number Checker ---")
+
+    try:
+        number = int(input("Enter a whole number: "))
+
+        if number > 0:
+            print(f"{number} is positive.")
+        elif number < 0:
+            print(f"{number} is negative.")
+        else:
+            print("The number is zero.")
+
+        if number % 2 == 0:
+            print(f"{number} is even.")
+        else:
+            print(f"{number} is odd.")
+
+    except ValueError:
+        print("Please enter a valid whole number.")
+
+
+# Main program: Repeats the menu until the user chooses Quit.
+def main():
+    print("Welcome to My Python Toolkit!")
+
+    while True:
+        print("\nPlease choose a tool:")
+        print("1. Simple Calculator")
+        print("2. To-Do List")
+        print("3. Number Checker")
+        print("4. Quit")
+
+        choice = input("Enter your choice (1-4): ").strip()
+
+        if choice == "1":
+            simple_calculator()
+        elif choice == "2":
+            todo_list()
+        elif choice == "3":
+            number_checker()
+        elif choice == "4":
+            print("Thank you for using My Python Toolkit. Goodbye!")
+            break
+        else:
+            print(
+                f"Sorry, '{choice}' is not a valid choice. "
+                "Please choose 1, 2, 3, or 4."
+            )
+
+
+# Start the program.
+if __name__ == "__main__":
+    main()
